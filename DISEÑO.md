@@ -36,10 +36,9 @@ dos parámetros de una acción y deje un pedido incompleto.
 | `liberar-estacion` | `asignado ?p ?e` | `estacion-libre` | `asignado` |
 
 ## 5. Cómo llegué al esquema final
-- **Versión 1:** [TU VOZ: describe tu primera versión.] Tenía una acción de
-  preparar por platillo y las etapas cocinar, ensamblar y entregar, pero
-  ninguna acción usaba estaciones, así que el problema de recursos
-  compartidos no estaba modelado.
+- **Versión 1:** Tenía una acción de preparar por platillo y las etapas cocinar, 
+  ensamblar y entregar, pero ninguna acción usaba estaciones, así que el
+  problema de recursos compartidos no estaba modelado.
 - **Problema detectado:** los parámetros de ingredientes eran todos de tipo
   `ingrediente`, de modo que el planificador podía asignar el mismo objeto a
   varios parámetros y dejar un pedido "preparado" sin consumir todos sus
@@ -50,7 +49,7 @@ dos parámetros de una acción y deje un pedido incompleto.
   `(not (exists (?x - estacion) (asignado ?p ?x)))` en cocinar, ensamblar y
   entregar: un pedido debe soltar su estación antes de avanzar. Así no
   acapara dos estaciones a la vez y el planificador debe turnar los pedidos.
-  [TU VOZ: por qué decidiste esto.]
+  
 - **Dos caminos de ensamblaje:** `ensamblar-cocinado` y `ensamblar-frio`
   logran el mismo efecto para pedidos con y sin cocción.
 
